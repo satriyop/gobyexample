@@ -1,17 +1,18 @@
-# To run the program, put the code in `hello-world.go` and
-# use `go run`.
+# Untuk menjalankan program, simpanlah kode 
+# dalam file `hello-world.go` dan jalankan `go run`
 $ go run hello-world.go
 hello world
 
-# Sometimes we'll want to build our programs into
-# binaries. We can do this using `go build`.
+# Bila kita ingin membuat file binary dari program kita 
+# maka gunakan `go build`
 $ go build hello-world.go
 $ ls
 hello-world	hello-world.go
 
-# We can then execute the built binary directly.
+# Akan ada file binary baru yang dihasilkan 
+# dan bisa dijalankan seperti ini 
 $ ./hello-world
 hello world
 
-# Now that we can run and build basic Go programs, let's
-# learn more about the language.
+# Karena kita sudah mencoba hal dasar, 
+# Mari kita lebih lanjut belajar bahasa pemrograman Go

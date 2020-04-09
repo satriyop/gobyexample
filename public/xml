@@ -272,11 +272,11 @@ to nest all <code>plant</code>s under <code>&lt;parent&gt;&lt;child&gt;...</code
       
       
       <p class="next">
-        Next example: <a href="time">Time</a>.
+        Contoh berikutnya: <a href="time">Time</a>.
       </p>
       
       <p class="footer">
-        by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/xml">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://bumi.dev">satriyop</a> | <a href="https://github.com/satriyop/gobyexample/blob/master/examples/xml">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
       </p>
     </div>
     <script>

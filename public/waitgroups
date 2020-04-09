@@ -220,11 +220,11 @@ is likely to be different for each invocation.</p>
       
       
       <p class="next">
-        Next example: <a href="rate-limiting">Rate Limiting</a>.
+        Contoh berikutnya: <a href="rate-limiting">Rate Limiting</a>.
       </p>
       
       <p class="footer">
-        by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/waitgroups">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://bumi.dev">satriyop</a> | <a href="https://github.com/satriyop/gobyexample/blob/master/examples/waitgroups">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
       </p>
     </div>
     <script>

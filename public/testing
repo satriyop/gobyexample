@@ -223,11 +223,11 @@ when executing <code>go test -v</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="command-line-arguments">Command-Line Arguments</a>.
+        Contoh berikutnya: <a href="command-line-arguments">Command-Line Arguments</a>.
       </p>
       
       <p class="footer">
-        by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/testing">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://bumi.dev">satriyop</a> | <a href="https://github.com/satriyop/gobyexample/blob/master/examples/testing">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
       </p>
     </div>
     <script>

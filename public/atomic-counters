@@ -227,11 +227,11 @@ state.</p>
       
       
       <p class="next">
-        Next example: <a href="mutexes">Mutexes</a>.
+        Contoh berikutnya: <a href="mutexes">Mutexes</a>.
       </p>
       
       <p class="footer">
-        by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/atomic-counters">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://bumi.dev">satriyop</a> | <a href="https://github.com/satriyop/gobyexample/blob/master/examples/atomic-counters">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
       </p>
     </div>
     <script>

@@ -290,11 +290,11 @@ on the Go blog for more on error handling.</p>
       
       
       <p class="next">
-        Next example: <a href="goroutines">Goroutines</a>.
+        Contoh berikutnya: <a href="goroutines">Goroutines</a>.
       </p>
       
       <p class="footer">
-        by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/errors">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://bumi.dev">satriyop</a> | <a href="https://github.com/satriyop/gobyexample/blob/master/examples/errors">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
       </p>
     </div>
     <script>
