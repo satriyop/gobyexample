@@ -27,9 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p>In Go, <em>variables</em> are explicitly declared and used by
-the compiler to e.g. check type-correctness of function
-calls.</p>
+            <p>Di Go, <em>variables</em> dideklarasikan secara eksplisit
+dan digunakan oleh compiler mengecek type dari
+function calls</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +43,7 @@ calls.</p>
             
           </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/iYyAIilyBRf"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/P6pgBQj3NsJ"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -76,7 +76,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p><code>var</code> declares 1 or more variables.</p>
+            <p><code>var</code> mendeklarasi sebuah variabel atau lebih.</p>
 
           </td>
           <td class="code leading">
@@ -90,7 +90,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>You can declare multiple variables at once.</p>
+            <p>Mendeklarasikan lebih dari satu variabel sekaligus.</p>
 
           </td>
           <td class="code leading">
@@ -104,7 +104,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Go will infer the type of initialized variables.</p>
+            <p>Go akan menyimpulkan type dari variabel yang diinisiasi.</p>
 
           </td>
           <td class="code leading">
@@ -118,9 +118,9 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Variables declared without a corresponding
-initialization are <em>zero-valued</em>. For example, the
-zero value for an <code>int</code> is <code>0</code>.</p>
+            <p>Variabel-variabel yang dideklarasikan tanpa
+diinisiasikan adalah <em>zero-value</em> . Sebagai contoh,
+zero value dari sebuah <code>int</code> adalah 0.</p>
 
           </td>
           <td class="code leading">
@@ -134,9 +134,10 @@ zero value for an <code>int</code> is <code>0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>:=</code> syntax is shorthand for declaring and
-initializing a variable, e.g. for
-<code>var f string = &quot;apple&quot;</code> in this case.</p>
+            <p>sintaks := adalah cara singkat untuk mendeklarasikan
+dan menginisiasi sebuah variabel, sebagai contoh
+<code>var f string = &quot;apple&quot;</code> dalam hal ini dapat dituliskan
+seperti ini.</p>
 
           </td>
           <td class="code">
