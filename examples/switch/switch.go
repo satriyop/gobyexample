@@ -1,6 +1,5 @@
-// _Switch statements_ express conditionals across many
-// branches.
-
+// _Statement switch_  mengekspresikan persyaratan
+// dalam banyak percabangan.
 package main
 
 import (
@@ -10,7 +9,7 @@ import (
 
 func main() {
 
-	// Here's a basic `switch`.
+	// Berikut adalah `switch` sederhana
 	i := 2
 	fmt.Print("Write ", i, " as ")
 	switch i {
@@ -22,9 +21,10 @@ func main() {
 		fmt.Println("three")
 	}
 
-	// You can use commas to separate multiple expressions
-	// in the same `case` statement. We use the optional
-	// `default` case in this example as well.
+	// Kita bisa menggunakan koma untuk memisahkan
+	// beberapa _expression_ yang sama dalam satu
+	// statement `case` yang sama. Kita juga menggunakan `default`
+	// yang opsional pada contoh ini.
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
 		fmt.Println("It's the weekend")
@@ -32,9 +32,9 @@ func main() {
 		fmt.Println("It's a weekday")
 	}
 
-	// `switch` without an expression is an alternate way
-	// to express if/else logic. Here we also show how the
-	// `case` expressions can be non-constants.
+	// `switch` tanpa _expression_ sebagai alternatif
+	// logika if/else. Di sini kita menunjukkan _expression_ `case`
+	// bisa saja bukan konstan.
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
@@ -43,10 +43,10 @@ func main() {
 		fmt.Println("It's after noon")
 	}
 
-	// A type `switch` compares types instead of values.  You
-	// can use this to discover the type of an interface
-	// value.  In this example, the variable `t` will have the
-	// type corresponding to its clause.
+	// `switch` type akan membandingkan type bukan value.
+	// Kita bisa menggunakan ini untuk mengetahui type dari
+	// nilai interface. Dalam contoh ini, kita variabel `t` akan
+	// mempunyai type yang sesuai dengan klausanya.
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
 		case bool:
