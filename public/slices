@@ -27,22 +27,13 @@
         
         <tr>
           <td class="docs">
-            <p><em>Slices</em> are a key data type in Go, giving a more
-powerful interface to sequences than arrays.</p>
+            <p><em>Slice</em> adalah tipe data yang utama di Go,
+memberikan <em>interface</em> ke urutan yang lebih
+hebat daripada array.</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/iLnoIEIxeQ1"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/-i92eAyeI8-"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -75,11 +66,12 @@ powerful interface to sequences than arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Unlike arrays, slices are typed only by the
-elements they contain (not the number of elements).
-To create an empty slice with non-zero length, use
-the builtin <code>make</code>. Here we make a slice of
-<code>string</code>s of length <code>3</code> (initially zero-valued).</p>
+            <p>Tidak seperti array, slice hanya di-type
+oleh elemen yang ada didalamnya (bukan oleh jumlah dari elemen).
+Untuk membuat slice kosong dengan <em>non-zero length</em>,
+gunakan fungsi builtin <code>make</code>. Di contoh ini kita membuat slice
+dari <code>string</code> dengan panjang <code>3</code> (diinisiasikan <em>zero-valued</em>
+untuk nilai elemennya).</p>
 
           </td>
           <td class="code leading">
@@ -93,7 +85,7 @@ the builtin <code>make</code>. Here we make a slice of
         
         <tr>
           <td class="docs">
-            <p>We can set and get just like with arrays.</p>
+            <p>Kita bisa mengatur dan mengakses elemen seperti dalam array.</p>
 
           </td>
           <td class="code leading">
@@ -110,7 +102,7 @@ the builtin <code>make</code>. Here we make a slice of
         
         <tr>
           <td class="docs">
-            <p><code>len</code> returns the length of the slice as expected.</p>
+            <p><code>fungsi len</code> akan mengembalikan panjang dari slice.</p>
 
           </td>
           <td class="code leading">
@@ -123,12 +115,12 @@ the builtin <code>make</code>. Here we make a slice of
         
         <tr>
           <td class="docs">
-            <p>In addition to these basic operations, slices
-support several more that make them richer than
-arrays. One is the builtin <code>append</code>, which
-returns a slice containing one or more new values.
-Note that we need to accept a return value from
-<code>append</code> as we may get a new slice value.</p>
+            <p>Sebagai tambahan dari operasi dasar ini, slice
+mendukung beberapa operasi lain yang membuatnya lebih
+kaya daripada array. Salah satunya adalah <code>append</code>, yang
+akan mengambalikan sebuah slice yang mempunyai satu / lebih
+nilai. Perhatikan bahwa kita harus menerima nilai yang dikembalikan
+dari <code>append</code> karena kita akan mendapatkan sebuah slice yang baru.</p>
 
           </td>
           <td class="code leading">
@@ -143,9 +135,9 @@ Note that we need to accept a return value from
         
         <tr>
           <td class="docs">
-            <p>Slices can also be <code>copy</code>&rsquo;d. Here we create an
-empty slice <code>c</code> of the same length as <code>s</code> and copy
-into <code>c</code> from <code>s</code>.</p>
+            <p>Slice juga bisa di <code>copy</code>. Di sini kita membuat sebuah
+slice kosong <code>c</code> yang mempunyai ukuran yang sama dengan <code>s</code>
+dan kita copy <code>s</code> ke dalam <code>c</code>.</p>
 
           </td>
           <td class="code leading">
@@ -160,9 +152,9 @@ into <code>c</code> from <code>s</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices support a &ldquo;slice&rdquo; operator with the syntax
-<code>slice[low:high]</code>. For example, this gets a slice
-of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
+            <p>Slice mendukung sebuah operator &ldquo;slice&rdquo; dengan sintaks
+<code>slice[low:high]</code>. Dalam contoh ini, kita akan mendapatkan
+elemen <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
 
           </td>
           <td class="code leading">
@@ -176,7 +168,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>This slices up to (but excluding) <code>s[5]</code>.</p>
+            <p>Contoh ini akan men-slice sampai <code>s[5]</code> (elemen 5 tidak termasuk).</p>
 
           </td>
           <td class="code leading">
@@ -190,7 +182,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>And this slices up from (and including) <code>s[2]</code>.</p>
+            <p>Contoh ini akan men-slice sampai <code>s[2]</code> (elemen 2 termasuk).</p>
 
           </td>
           <td class="code leading">
@@ -204,8 +196,8 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We can declare and initialize a variable for slice
-in a single line as well.</p>
+            <p>Kita bisa mendeklarasikan dan menginisiasikan
+sebuah variabel untuk slice dalam satu baris.</p>
 
           </td>
           <td class="code leading">
@@ -219,9 +211,9 @@ in a single line as well.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices can be composed into multi-dimensional data
-structures. The length of the inner slices can
-vary, unlike with multi-dimensional arrays.</p>
+            <p>Slice bisa disusun menjadi struktur data multi-dimensi.
+Ukuran dari <em>inner slice</em> bisa bervariasi, tidak seperti
+array multi-dimensi.</p>
 
           </td>
           <td class="code">
@@ -247,8 +239,9 @@ vary, unlike with multi-dimensional arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that while slices are different types than arrays,
-they are rendered similarly by <code>fmt.Println</code>.</p>
+            <p>Perhatikan bahwa type slice berbeda dengan array,
+Slice ditampilkan mirip dengan array oleh
+fungsi <code>fmt.Prinln</code>.</p>
 
           </td>
           <td class="code leading">
@@ -272,9 +265,9 @@ they are rendered similarly by <code>fmt.Println</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Check out this <a href="http://blog.golang.org/2011/01/go-slices-usage-and-internals.html">great blog post</a>
-by the Go team for more details on the design and
-implementation of slices in Go.</p>
+            <p>Silakan cek ini <a href="http://blog.golang.org/2011/01/go-slices-usage-and-internals.html">postingan blog bagus</a>
+ditulis oleh tim Go untuk mengetahui yang detail t
+entang desain &amp; implementasi slice di Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -285,8 +278,9 @@ implementation of slices in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Now that we&rsquo;ve seen arrays and slices we&rsquo;ll look at
-Go&rsquo;s other key builtin data structure: maps.</p>
+            <p>Sekarang kita sudah melihat array dan slice,
+selanjutnya mari kita lihat
+struktur data penting lainnya di Go: maps.</p>
 
           </td>
           <td class="code empty">
@@ -308,7 +302,7 @@ Go&rsquo;s other key builtin data structure: maps.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func main() {\u000A');codeLines.push('    s :\x3D make([]string, 3)\u000A    fmt.Println(\"emp:\", s)\u000A');codeLines.push('    s[0] \x3D \"a\"\u000A    s[1] \x3D \"b\"\u000A    s[2] \x3D \"c\"\u000A    fmt.Println(\"set:\", s)\u000A    fmt.Println(\"get:\", s[2])\u000A');codeLines.push('    fmt.Println(\"len:\", len(s))\u000A');codeLines.push('    s \x3D append(s, \"d\")\u000A    s \x3D append(s, \"e\", \"f\")\u000A    fmt.Println(\"apd:\", s)\u000A');codeLines.push('    c :\x3D make([]string, len(s))\u000A    copy(c, s)\u000A    fmt.Println(\"cpy:\", c)\u000A');codeLines.push('    l :\x3D s[2:5]\u000A    fmt.Println(\"sl1:\", l)\u000A');codeLines.push('    l \x3D s[:5]\u000A    fmt.Println(\"sl2:\", l)\u000A');codeLines.push('    l \x3D s[2:]\u000A    fmt.Println(\"sl3:\", l)\u000A');codeLines.push('    t :\x3D []string{\"g\", \"h\", \"i\"}\u000A    fmt.Println(\"dcl:\", t)\u000A');codeLines.push('    twoD :\x3D make([][]int, 3)\u000A    for i :\x3D 0; i \x3C 3; i++ {\u000A        innerLen :\x3D i + 1\u000A        twoD[i] \x3D make([]int, innerLen)\u000A        for j :\x3D 0; j \x3C innerLen; j++ {\u000A            twoD[i][j] \x3D i + j\u000A        }\u000A    }\u000A    fmt.Println(\"2d: \", twoD)\u000A}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func main() {\u000A');codeLines.push('    s :\x3D make([]string, 3)\u000A    fmt.Println(\"emp:\", s)\u000A');codeLines.push('    s[0] \x3D \"a\"\u000A    s[1] \x3D \"b\"\u000A    s[2] \x3D \"c\"\u000A    fmt.Println(\"set:\", s)\u000A    fmt.Println(\"get:\", s[2])\u000A');codeLines.push('    fmt.Println(\"len:\", len(s))\u000A');codeLines.push('    s \x3D append(s, \"d\")\u000A    s \x3D append(s, \"e\", \"f\")\u000A    fmt.Println(\"apd:\", s)\u000A');codeLines.push('    c :\x3D make([]string, len(s))\u000A    copy(c, s)\u000A    fmt.Println(\"cpy:\", c)\u000A');codeLines.push('    l :\x3D s[2:5]\u000A    fmt.Println(\"sl1:\", l)\u000A');codeLines.push('    l \x3D s[:5]\u000A    fmt.Println(\"sl2:\", l)\u000A');codeLines.push('    l \x3D s[2:]\u000A    fmt.Println(\"sl3:\", l)\u000A');codeLines.push('    t :\x3D []string{\"g\", \"h\", \"i\"}\u000A    fmt.Println(\"dcl:\", t)\u000A');codeLines.push('    twoD :\x3D make([][]int, 3)\u000A    for i :\x3D 0; i \x3C 3; i++ {\u000A        innerLen :\x3D i + 1\u000A        twoD[i] \x3D make([]int, innerLen)\u000A        for j :\x3D 0; j \x3C innerLen; j++ {\u000A            twoD[i][j] \x3D i + j\u000A        }\u000A    }\u000A    fmt.Println(\"2d: \", twoD)\u000A}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
