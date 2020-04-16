@@ -1,50 +1,49 @@
-// _Maps_ are Go's built-in [associative data type](http://en.wikipedia.org/wiki/Associative_array)
-// (sometimes called _hashes_ or _dicts_ in other languages).
-
+// _Maps_ adalah [associative data type](http://en.wikipedia.org/wiki/Associative_array) di Go
+// (kadanng dinamakan _hash_ atau _dictionary_ di bahasa pemrograman lain).
 package main
 
 import "fmt"
 
 func main() {
 
-	// To create an empty map, use the builtin `make`:
-	// `make(map[key-type]val-type)`.
+	// Untuk membuat map kosong, gunakan fungsi builtin `make`
+	// `make(map[type-dari-key]type-dari-value)`
 	m := make(map[string]int)
 
-	// Set key/value pairs using typical `name[key] = val`
-	// syntax.
+	// Menatur pasangan key/value dengan
+	// sintaks `nama[key] = value`
 	m["k1"] = 7
 	m["k2"] = 13
 
-	// Printing a map with e.g. `fmt.Println` will show all of
-	// its key/value pairs.
+	// Menampilkan map dengan `fmt.Println` akan menunjukkan
+	// semua pasangan key/value
 	fmt.Println("map:", m)
 
-	// Get a value for a key with `name[key]`.
+	// Mengambil sebuah value dari key dengan `nama[key]`
 	v1 := m["k1"]
 	fmt.Println("v1: ", v1)
 
-	// The builtin `len` returns the number of key/value
-	// pairs when called on a map.
+	// `len` dengan argumen map akan mengambalikan jumlah dari pasangan
+	// key/value dari map tersebut.
 	fmt.Println("len:", len(m))
 
-	// The builtin `delete` removes key/value pairs from
-	// a map.
+	// `delete` dengan argumen pertama map, dan argumen kedua key
+	// akan menghapus pasangan key/value tersebut dari map.
 	delete(m, "k2")
 	fmt.Println("map:", m)
 
-	// The optional second return value when getting a
-	// value from a map indicates if the key was present
-	// in the map. This can be used to disambiguate
-	// between missing keys and keys with zero values
-	// like `0` or `""`. Here we didn't need the value
-	// itself, so we ignored it with the _blank identifier_
-	// `_`.
+	// Return value kedua (yang opsional) ketika mengakses map
+	// mengindikasikan bahwa key tersebut ada di dalam map.
+	// Hal ini bisa digunakan untuk menghindari ambigu antara
+	// key yang tidak ada dan key yang bernilai _zero values_
+	// seperti `0` atau `""`. Di contoh ini, kita tidak membutuhkan
+	// valuenya, sehingga menggunakan _blank identifier_
+	// pada return value pertama dengan notasi `_`.
 	_, prs := m["k2"]
 	fmt.Println("prs:", prs)
 
-	// You can also declare and initialize a new map in
-	// the same line with this syntax.
+	// Kita juga bisa mendeklarasikan dan menginisiasikan
+	// map baru dalam satu baris dengan sintaks berikut ini.
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
 }
