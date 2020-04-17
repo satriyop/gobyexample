@@ -1,4 +1,4 @@
-//_range_ akan mengiterasi elemen-elemen dalam
+// _range_ akan mengiterasi elemen-elemen dalam
 // berbagai struktur data. Mari kita lihat penggunaannya
 // dengan struktur data yang sudah kita pelajari.
 package main
