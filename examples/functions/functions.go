@@ -1,32 +1,31 @@
-// _Functions_ are central in Go. We'll learn about
-// functions with a few different examples.
-
+// _Function_ adalah pusat dari Go. Kita akan mempelajari
+// function dengan contoh-contoh yang berbeda.
 package main
 
 import "fmt"
 
-// Here's a function that takes two `int`s and returns
-// their sum as an `int`.
+// Di contoh ini, sebuah function akan mengambil dua
+// parameter dengan type `int`
+// dan mengembalikan hasil penjumlahan keduanya
+// dengan type `int` juga.
 func plus(a int, b int) int {
 
-	// Go requires explicit returns, i.e. it won't
-	// automatically return the value of the last
-	// expression.
+	// Go membutuhkan _keyword_ return secara eksplisit,
+	// artinya, Go tidak mengembalikan nilai
+	// dari _expression_ terakhir secara otomatis.
 	return a + b
 }
 
-// When you have multiple consecutive parameters of
-// the same type, you may omit the type name for the
-// like-typed parameters up to the final parameter that
-// declares the type.
+// Ketika kita punya beberapa parameter dengan type yang sama,
+// kita bisa mendeklarasikannya secara sekaligus.
 func plusPlus(a, b, c int) int {
 	return a + b + c
 }
 
 func main() {
 
-	// Call a function just as you'd expect, with
-	// `name(args)`.
+	// Memanggil function seperti yang kita bayangkan,
+	// dengan `nama(args)`.
 	res := plus(1, 2)
 	fmt.Println("1+2 =", res)
 
