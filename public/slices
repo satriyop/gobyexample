@@ -266,8 +266,8 @@ fungsi <code>fmt.Prinln</code>.</p>
         <tr>
           <td class="docs">
             <p>Silakan cek ini <a href="http://blog.golang.org/2011/01/go-slices-usage-and-internals.html">postingan blog bagus</a>
-ditulis oleh tim Go untuk mengetahui yang detail t
-entang desain &amp; implementasi slice di Go.</p>
+ditulis oleh tim Go untuk mengetahui yang detail
+tentang desain &amp; implementasi slice di Go.</p>
 
           </td>
           <td class="code empty leading">

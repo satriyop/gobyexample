@@ -30,5 +30,5 @@ func main() {
 	}
 }
 
-// Note that you don't need parentheses around conditions
-// in Go, but that the braces are required.
+// Perhatikan bahwa kita tidak harus menggunakan tanda kurung
+// pada kondisi/persyaratan, tapi kurung kurawal wajib ada.

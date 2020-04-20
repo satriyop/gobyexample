@@ -27,23 +27,15 @@
         
         <tr>
           <td class="docs">
-            <p>Go has built-in support for <em>multiple return values</em>.
-This feature is used often in idiomatic Go, for example
-to return both result and error values from a function.</p>
+            <p>Go mendukung <em>multiple return values</em> (lebih dari satu value yang
+bisa dikembalikan dari pemanggilan sebuah fungsi).
+Fitur ini sering digunakan dalam Go secara <em>idiomatic</em>,
+sebagai contoh, untuk mengembalikan (return) hasil maupun
+error dari sebuah fungsi.</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/vZdUvLB1WbK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/kKqFLPiBJLj"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,8 +56,8 @@ to return both result and error values from a function.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>(int, int)</code> in this function signature shows that
-the function returns 2 <code>int</code>s.</p>
+            <p>Dalam <em>signature</em> fungsi ini, <code>(int, int)</code> menunjukkan
+bahwa fungsi ini mengembalikan sejumlah 2 <code>int</code>.</p>
 
           </td>
           <td class="code leading">
@@ -92,8 +84,9 @@ the function returns 2 <code>int</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we use the 2 different return values from the
-call with <em>multiple assignment</em>.</p>
+            <p>Di contoh ini kita menyimpan 2 value yang berbeda
+dari pemanggilan sebuah fungsi dengan menggunakan
+<em>multiple assignment</em>.</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +101,10 @@ call with <em>multiple assignment</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you only want a subset of the returned values,
-use the blank identifier <code>_</code>.</p>
+            <p>Jika kita tidak mau menyimpan semua value yang dikembalikan
+dari sebuah pemanggilan fungsi
+kita bisa menggunakan <em>blank identifier</em> <code>_</code>
+untuk mengacuhkan value lainnya.</p>
 
           </td>
           <td class="code">
@@ -143,8 +138,9 @@ use the blank identifier <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Accepting a variable number of arguments is another nice
-feature of Go functions; we&rsquo;ll look at this next.</p>
+            <p>Sebuah fungsi yang jumlah argumennya bervariasi
+dalam sebuah adalah satu fitur yang menarik di Go,
+kita akan melihatnya di bagian berikutnya.</p>
 
           </td>
           <td class="code empty">
@@ -166,7 +162,7 @@ feature of Go functions; we&rsquo;ll look at this next.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func vals() (int, int) {\u000A    return 3, 7\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    a, b :\x3D vals()\u000A    fmt.Println(a)\u000A    fmt.Println(b)\u000A');codeLines.push('    _, c :\x3D vals()\u000A    fmt.Println(c)\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func vals() (int, int) {\u000A    return 3, 7\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    a, b :\x3D vals()\u000A    fmt.Println(a)\u000A    fmt.Println(b)\u000A');codeLines.push('    _, c :\x3D vals()\u000A    fmt.Println(c)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

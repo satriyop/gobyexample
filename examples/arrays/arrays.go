@@ -14,10 +14,6 @@ func main() {
 	var a [5]int
 	fmt.Println("emp:", a)
 
-	// We can set a value at an index using the
-	// `array[index] = value` syntax, and get a value with
-	// `array[index]`.
-
 	// Kita bisa mengatur sebuah nilai dari elemen dengan
 	// menggunakan indeks atau nomoer urutannya dengan sintaks
 	// `array[index] = value` , dan bisa mengakses nilai element

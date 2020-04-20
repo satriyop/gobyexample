@@ -15,8 +15,8 @@ dcl: [g h i]
 2d:  [[0] [1 2] [2 3 4]]
 
 # Silakan cek ini [postingan blog bagus](http://blog.golang.org/2011/01/go-slices-usage-and-internals.html)
-# ditulis oleh tim Go untuk mengetahui yang detail t
-# entang desain & implementasi slice di Go.
+# ditulis oleh tim Go untuk mengetahui yang detail 
+# tentang desain & implementasi slice di Go.
 
 # Sekarang kita sudah melihat array dan slice, 
 # selanjutnya mari kita lihat 
