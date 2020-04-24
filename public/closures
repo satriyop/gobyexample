@@ -27,24 +27,14 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <a href="http://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous functions</em></a>,
-which can form <a href="http://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-Anonymous functions are useful when you want to define
-a function inline without having to name it.</p>
+            <p>Go mendukung <a href="http://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous functions</em></a>,
+yang bisa digunakan untuk membuat sebuah
+fungsi anonim berguna ketika kita ingin mendefinisikan
+sebuah fungsi secara <em>inline</em> tanpa harus memberi nama fungsi tersebut.</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/66Lgw9iIIch"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/VZbsk0x87P2"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -65,10 +55,10 @@ a function inline without having to name it.</p>
         
         <tr>
           <td class="docs">
-            <p>This function <code>intSeq</code> returns another function, which
-we define anonymously in the body of <code>intSeq</code>. The
-returned function <em>closes over</em> the variable <code>i</code> to
-form a closure.</p>
+            <p>Fungsi <code>intSeq</code> ini mengembalikan suatu fungsi lain,
+yang mana kita definisikan secara anonim pada body fungsi <code>intSeq</code>.
+Fungsi anonim yang dikembalikan akan <em>menampung</em> variabel <code>i</code>
+untuk membentuk sebuah closure.</p>
 
           </td>
           <td class="code leading">
@@ -99,10 +89,10 @@ form a closure.</p>
         
         <tr>
           <td class="docs">
-            <p>We call <code>intSeq</code>, assigning the result (a function)
-to <code>nextInt</code>. This function value captures its
-own <code>i</code> value, which will be updated each time
-we call <code>nextInt</code>.</p>
+            <p>Kita memanggil fungsi <code>intSeq</code> dan menyimpan hasilnya
+(yang adalah sebuah fungsi anonim) ke variabel <code>nextInt</code>.
+Fungsi ini akan mempunyai value <code>i</code> sendiri, yang akan
+berganti setiap kita memanggil fungsi <code>nextInt</code> ini.</p>
 
           </td>
           <td class="code leading">
@@ -115,8 +105,8 @@ we call <code>nextInt</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>See the effect of the closure by calling <code>nextInt</code>
-a few times.</p>
+            <p>Lihat efek dari <em>closure</em> dengan memanggil fungsi
+<code>nextInt</code> beberapa kali.</p>
 
           </td>
           <td class="code leading">
@@ -131,8 +121,9 @@ a few times.</p>
         
         <tr>
           <td class="docs">
-            <p>To confirm that the state is unique to that
-particular function, create and test a new one.</p>
+            <p>Untuk mengkonfirmasi bahwa <em>state</em> adalah unik
+terhadap fungsi tersebut, buatlah lagi fungsi baru
+dan lakukan pengetesan seperti ini.</p>
 
           </td>
           <td class="code">
@@ -167,8 +158,8 @@ particular function, create and test a new one.</p>
         
         <tr>
           <td class="docs">
-            <p>The last feature of functions we&rsquo;ll look at for now is
-recursion.</p>
+            <p>Fitur terakhir yang akan kita lihat berikutnya adalah
+<em>recursion</em>.</p>
 
           </td>
           <td class="code empty">
@@ -190,7 +181,7 @@ recursion.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func intSeq() func() int {\u000A    i :\x3D 0\u000A    return func() int {\u000A        i++\u000A        return i\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    nextInt :\x3D intSeq()\u000A');codeLines.push('    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A');codeLines.push('    newInts :\x3D intSeq()\u000A    fmt.Println(newInts())\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func intSeq() func() int {\u000A    i :\x3D 0\u000A    return func() int {\u000A        i++\u000A        return i\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    nextInt :\x3D intSeq()\u000A');codeLines.push('    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A');codeLines.push('    newInts :\x3D intSeq()\u000A    fmt.Println(newInts())\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

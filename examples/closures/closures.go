@@ -1,16 +1,15 @@
-// Go supports [_anonymous functions_](http://en.wikipedia.org/wiki/Anonymous_function),
-// which can form <a href="http://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-// Anonymous functions are useful when you want to define
-// a function inline without having to name it.
-
+// Go mendukung [_anonymous functions_](http://en.wikipedia.org/wiki/Anonymous_function),
+// yang bisa digunakan untuk membuat sebuah
+// fungsi anonim berguna ketika kita ingin mendefinisikan
+// sebuah fungsi secara _inline_ tanpa harus memberi nama fungsi tersebut.
 package main
 
 import "fmt"
 
-// This function `intSeq` returns another function, which
-// we define anonymously in the body of `intSeq`. The
-// returned function _closes over_ the variable `i` to
-// form a closure.
+// Fungsi `intSeq` ini mengembalikan suatu fungsi lain,
+// yang mana kita definisikan secara anonim pada body fungsi `intSeq`.
+// Fungsi anonim yang dikembalikan akan _menampung_ variabel `i`
+// untuk membentuk sebuah closure.
 func intSeq() func() int {
 	i := 0
 	return func() int {
@@ -21,20 +20,21 @@ func intSeq() func() int {
 
 func main() {
 
-	// We call `intSeq`, assigning the result (a function)
-	// to `nextInt`. This function value captures its
-	// own `i` value, which will be updated each time
-	// we call `nextInt`.
+	// Kita memanggil fungsi `intSeq` dan menyimpan hasilnya
+	// (yang adalah sebuah fungsi anonim) ke variabel `nextInt`.
+	// Fungsi ini akan mempunyai value `i` sendiri, yang akan
+	// berganti setiap kita memanggil fungsi `nextInt` ini.
 	nextInt := intSeq()
 
-	// See the effect of the closure by calling `nextInt`
-	// a few times.
+	// Lihat efek dari _closure_ dengan memanggil fungsi
+	// `nextInt` beberapa kali.
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 
-	// To confirm that the state is unique to that
-	// particular function, create and test a new one.
+	// Untuk mengkonfirmasi bahwa _state_ adalah unik
+	// terhadap fungsi tersebut, buatlah lagi fungsi baru
+	// dan lakukan pengetesan seperti ini.
 	newInts := intSeq()
 	fmt.Println(newInts())
 }
