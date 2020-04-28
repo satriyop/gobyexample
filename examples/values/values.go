@@ -1,4 +1,3 @@
-// Go has various value types including strings,
 // Go mempunyai bermacam-macam value types, antara lain
 // strings, integers, floats, booleans, dan lain-lain.
 // Berikut di bawah adalah beberapa contoh dasar.
