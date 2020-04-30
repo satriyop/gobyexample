@@ -27,22 +27,12 @@
         
         <tr>
           <td class="docs">
-            <p><em>Interfaces</em> are named collections of method
-signatures.</p>
+            <p><em>Interface</em> adalah kumpulan dari <em>signature method</em>
+(definisi dari method/fungsi, tanpa body) yang mempunyai nama.</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/XJASG4MxBQr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/QQnRRCr_5mY"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -66,7 +56,8 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic interface for geometric shapes.</p>
+            <p>Berikut ini adalah interface sederhana untuk
+yang bernama geometry</p>
 
           </td>
           <td class="code leading">
@@ -82,8 +73,8 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll implement this interface on
-<code>rect</code> and <code>circle</code> types.</p>
+            <p>Dalam contoh ini kita akan mengimplementasikan
+interface di ada type <code>rect</code> dan <code>circle</code>.</p>
 
           </td>
           <td class="code leading">
@@ -101,9 +92,10 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>To implement an interface in Go, we just need to
-implement all the methods in the interface. Here we
-implement <code>geometry</code> on <code>rect</code>s.</p>
+            <p>Untuk mengimplementasikan interface di Go, kita hanya
+perlu mengimplementasikan semua method yang ada
+di interface tersebut. Dalam contoh ini, kita mengimplementasikan
+interface <code>geometry</code> pada type <code>rect</code>.</p>
 
           </td>
           <td class="code leading">
@@ -121,7 +113,7 @@ implement <code>geometry</code> on <code>rect</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>The implementation for <code>circle</code>s.</p>
+            <p>Implementasi interface geometry pada type <code>circle</code>.</p>
 
           </td>
           <td class="code leading">
@@ -139,10 +131,23 @@ implement <code>geometry</code> on <code>rect</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>If a variable has an interface type, then we can call
-methods that are in the named interface. Here&rsquo;s a
-generic <code>measure</code> function taking advantage of this
-to work on any <code>geometry</code>.</p>
+            <p>Jika dalam sebuah variabel mempunyai type interface,
+maka kita bisa memanggil method yang ada di interface tersebut.</p>
+
+          </td>
+          <td class="code empty leading">
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Di sini sebuah fungsi biasa <code>measure</code> menggunakan type interface <code>geometry</code>
+sebagai parameter artinya apapun type yang mengimplementasikan interface <code>geometry</code>
+seperti <code>rect</code> atau <code>circle</code> bisa dipakai digunakan sebagai argumen saat pemanggilan fungsi.
+Dengan begitu fungsi ini bisa memanggil method-method yang ada di interface <code>geometry</code> terhadap
+type yang diberikan.</p>
 
           </td>
           <td class="code leading">
@@ -173,10 +178,10 @@ to work on any <code>geometry</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>circle</code> and <code>rect</code> struct types both
-implement the <code>geometry</code> interface so we can use
-instances of
-these structs as arguments to <code>measure</code>.</p>
+            <p>type struct <code>circle</code> dan <code>rect</code> mengimplementasikan
+interface <code>geometry</code> sehingga kita bisa menggunakan
+<em>instance</em> dari struct tersebut sebagai argumen pada
+fungsi <code>measure</code>.</p>
 
           </td>
           <td class="code">
@@ -213,8 +218,8 @@ these structs as arguments to <code>measure</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To learn more about Go&rsquo;s interfaces, check out this
-<a href="http://jordanorelli.tumblr.com/post/32665860244/how-to-use-interfaces-in-go">great blog post</a>.</p>
+            <p>Untuk belajar lebih lanjut tentang interface di Go
+Kunjungi <a href="http://jordanorelli.tumblr.com/post/32665860244/how-to-use-interfaces-in-go">postingan ini</a>.</p>
 
           </td>
           <td class="code empty">
@@ -236,7 +241,7 @@ these structs as arguments to <code>measure</code>.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"math\"\u000A)\u000A');codeLines.push('type geometry interface {\u000A    area() float64\u000A    perim() float64\u000A}\u000A');codeLines.push('type rect struct {\u000A    width, height float64\u000A}\u000Atype circle struct {\u000A    radius float64\u000A}\u000A');codeLines.push('func (r rect) area() float64 {\u000A    return r.width * r.height\u000A}\u000Afunc (r rect) perim() float64 {\u000A    return 2*r.width + 2*r.height\u000A}\u000A');codeLines.push('func (c circle) area() float64 {\u000A    return math.Pi * c.radius * c.radius\u000A}\u000Afunc (c circle) perim() float64 {\u000A    return 2 * math.Pi * c.radius\u000A}\u000A');codeLines.push('func measure(g geometry) {\u000A    fmt.Println(g)\u000A    fmt.Println(g.area())\u000A    fmt.Println(g.perim())\u000A}\u000A');codeLines.push('func main() {\u000A    r :\x3D rect{width: 3, height: 4}\u000A    c :\x3D circle{radius: 5}\u000A');codeLines.push('    measure(r)\u000A    measure(c)\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"math\"\u000A)\u000A');codeLines.push('type geometry interface {\u000A    area() float64\u000A    perim() float64\u000A}\u000A');codeLines.push('type rect struct {\u000A    width, height float64\u000A}\u000Atype circle struct {\u000A    radius float64\u000A}\u000A');codeLines.push('func (r rect) area() float64 {\u000A    return r.width * r.height\u000A}\u000Afunc (r rect) perim() float64 {\u000A    return 2*r.width + 2*r.height\u000A}\u000A');codeLines.push('func (c circle) area() float64 {\u000A    return math.Pi * c.radius * c.radius\u000A}\u000Afunc (c circle) perim() float64 {\u000A    return 2 * math.Pi * c.radius\u000A}\u000A');codeLines.push('');codeLines.push('func measure(g geometry) {\u000A    fmt.Println(g)\u000A    fmt.Println(g.area())\u000A    fmt.Println(g.perim())\u000A}\u000A');codeLines.push('func main() {\u000A    r :\x3D rect{width: 3, height: 4}\u000A    c :\x3D circle{radius: 5}\u000A');codeLines.push('    measure(r)\u000A    measure(c)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
