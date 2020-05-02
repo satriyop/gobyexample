@@ -1,21 +1,21 @@
-// When using channels as function parameters, you can
-// specify if a channel is meant to only send or receive
-// values. This specificity increases the type-safety of
-// the program.
-
+// Ketika kita menggunakan channel sebagai parameter
+// dari sebuah fungsi, maka kita bisa menentukan jika
+// sebuah channel hanya untuk mengirim atau hanya untuk
+// menerima value. Dengan melakukannya, kita meningnkatkan
+// _type-safety_ dari program kita.
 package main
 
 import "fmt"
 
-// This `ping` function only accepts a channel for sending
-// values. It would be a compile-time error to try to
-// receive on this channel.
+// Fungsi `ping` ini hanya akan menerima channel untuk
+// mengirimkan value. Aka terjadi error pada _compile-time_
+// jika kita mencoba untuk mengirim value pada channel ini.
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }
 
-// The `pong` function accepts one channel for receives
-// (`pings`) and a second for sends (`pongs`).
+// Parameter pertama fungsi `pong` ini adalah sebuah channel untuk
+// menerima (`pings`) dan parameter kedua untuk mengirim (`pongs`).
 func pong(pings <-chan string, pongs chan<- string) {
 	msg := <-pings
 	pongs <- msg

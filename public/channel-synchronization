@@ -27,25 +27,16 @@
         
         <tr>
           <td class="docs">
-            <p>We can use channels to synchronize execution
-across goroutines. Here&rsquo;s an example of using a
-blocking receive to wait for a goroutine to finish.
-When waiting for multiple goroutines to finish,
-you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
+            <p>Kita bisa menggunakan channel untuk melakukan
+sinkronisasi dari goroutine-goroutine yang berjalan.
+Di sini kita menggunakan <em>blocking receive</em> untuk
+menunggu dari sebuah goroutine selesai,
+Kita mungkin akan lebih memilih metode sinkronisasi
+dengan <a href="waitgroups">WaitGroup</a> daripada metode ini.</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/Nw-1DzIGk5f"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/T4pJsjlGn5e"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -69,9 +60,10 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in a goroutine. The
-<code>done</code> channel will be used to notify another
-goroutine that this function&rsquo;s work is done.</p>
+            <p>Ini adalah fungsi yang akan kita jalankan dalam
+sebuah goroutine. Channel <code>done</code> akan digunakan
+untuk memberitahu goroutine lain (func main juga adalah goroutine)
+bahwa fungsi ini telah selesai dieksekusi.</p>
 
           </td>
           <td class="code leading">
@@ -87,7 +79,8 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Send a value to notify that we&rsquo;re done.</p>
+            <p>Mengirimkan sebuah value untuk memberitahu
+bahwa fungsi ini sudah selesai.</p>
 
           </td>
           <td class="code leading">
@@ -113,8 +106,8 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Start a worker goroutine, giving it the channel to
-notify on.</p>
+            <p>Memalai goroutine dari fungsi worker, dan memberikan
+channel untuk pemberitahuan selesai nantinya.</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +121,8 @@ notify on.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until we receive a notification from the
-worker on the channel.</p>
+            <p>Dengan melakukan ini, kita melakukan block sampai
+ada pemberitahuan dari worker telah selesai.</p>
 
           </td>
           <td class="code">
@@ -160,9 +153,8 @@ worker on the channel.</p>
         
         <tr>
           <td class="docs">
-            <p>If you removed the <code>&lt;- done</code> line from this program, the
-program would exit before the <code>worker</code> even
-started.</p>
+            <p>Jika kita menghilangkan <code>&lt;- done</code> pada program ini,
+maka program akan selesai bahkan sebelum <code>worker</code> mulai.</p>
 
           </td>
           <td class="code empty">
@@ -184,7 +176,7 @@ started.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func worker(done chan bool) {\u000A    fmt.Print(\"working...\")\u000A    time.Sleep(time.Second)\u000A    fmt.Println(\"done\")\u000A');codeLines.push('    done \x3C- true\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    done :\x3D make(chan bool, 1)\u000A    go worker(done)\u000A');codeLines.push('    \x3C-done\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func worker(done chan bool) {\u000A    fmt.Print(\"working...\")\u000A    time.Sleep(time.Second)\u000A    fmt.Println(\"done\")\u000A');codeLines.push('    done \x3C- true\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    done :\x3D make(chan bool, 1)\u000A    go worker(done)\u000A');codeLines.push('    \x3C-done\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
