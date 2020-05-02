@@ -27,26 +27,15 @@
         
         <tr>
           <td class="docs">
-            <p>By default channels are <em>unbuffered</em>, meaning that they
-will only accept sends (<code>chan &lt;-</code>) if there is a
-corresponding receive (<code>&lt;- chan</code>) ready to receive the
-sent value. <em>Buffered channels</em> accept a limited
-number of  values without a corresponding receiver for
-those values.</p>
+            <p>Secara default channel tidak mempunyai buffer (<em>unbuffered</em>),
+artinya channel hanya akan menerima kiriman (<code>chan &lt;-</code>) bila
+ada penerima (<code>&lt;- chan</code>) yang siap. Lain halnya dengan
+<em>Buffered Channel</em> akan menerima saja sejumlah value tanpa
+harus adanya penerima.</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/3BRCdRnRszb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/zFgx8ruoV4x"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -79,8 +68,8 @@ those values.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we <code>make</code> a channel of strings buffering up to
-2 values.</p>
+            <p>Kita akan membuat <code>make</code> channel dengan type string
+dan mem-buffer 2 value dalam channel tersebut.</p>
 
           </td>
           <td class="code leading">
@@ -93,9 +82,8 @@ those values.</p>
         
         <tr>
           <td class="docs">
-            <p>Because this channel is buffered, we can send these
-values into the channel without a corresponding
-concurrent receive.</p>
+            <p>Karena chanel ini di-<em>buffer</em>, maka kita bisa mengirimkan
+value-value ini ke dalam channel tanpa penerima secara langsung.</p>
 
           </td>
           <td class="code leading">
@@ -109,7 +97,7 @@ concurrent receive.</p>
         
         <tr>
           <td class="docs">
-            <p>Later we can receive these two values as usual.</p>
+            <p>Kemudian kita bisa menerima dua value tersebut seperti biasa.</p>
 
           </td>
           <td class="code">
@@ -153,7 +141,7 @@ concurrent receive.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func main() {\u000A');codeLines.push('    messages :\x3D make(chan string, 2)\u000A');codeLines.push('    messages \x3C- \"buffered\"\u000A    messages \x3C- \"channel\"\u000A');codeLines.push('    fmt.Println(\x3C-messages)\u000A    fmt.Println(\x3C-messages)\u000A}\u000A');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func main() {\u000A');codeLines.push('    messages :\x3D make(chan string, 2)\u000A');codeLines.push('    messages \x3C- \"buffered\"\u000A    messages \x3C- \"channel\"\u000A');codeLines.push('    fmt.Println(\x3C-messages)\u000A    fmt.Println(\x3C-messages)\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

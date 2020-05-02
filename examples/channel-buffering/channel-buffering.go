@@ -1,27 +1,24 @@
-// By default channels are _unbuffered_, meaning that they
-// will only accept sends (`chan <-`) if there is a
-// corresponding receive (`<- chan`) ready to receive the
-// sent value. _Buffered channels_ accept a limited
-// number of  values without a corresponding receiver for
-// those values.
-
+// Secara default channel tidak mempunyai buffer (_unbuffered_),
+// artinya channel hanya akan menerima kiriman (`chan <-`) bila
+// ada penerima (`<- chan`) yang siap. Lain halnya dengan
+// _Buffered Channel_ akan menerima saja sejumlah value tanpa
+// harus adanya penerima.
 package main
 
 import "fmt"
 
 func main() {
 
-	// Here we `make` a channel of strings buffering up to
-	// 2 values.
+	// Kita akan membuat `make` channel dengan type string
+	// dan mem-buffer 2 value dalam channel tersebut.
 	messages := make(chan string, 2)
 
-	// Because this channel is buffered, we can send these
-	// values into the channel without a corresponding
-	// concurrent receive.
+	// Karena chanel ini di-_buffer_, maka kita bisa mengirimkan
+	// value-value ini ke dalam channel tanpa penerima secara langsung.
 	messages <- "buffered"
 	messages <- "channel"
 
-	// Later we can receive these two values as usual.
+	// Kemudian kita bisa menerima dua value tersebut seperti biasa.
 	fmt.Println(<-messages)
 	fmt.Println(<-messages)
 }
