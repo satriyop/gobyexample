@@ -27,23 +27,14 @@
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <em>select</em> lets you wait on multiple channel
-operations. Combining goroutines and channels with
-select is a powerful feature of Go.</p>
+            <p><em>Select</em> di Go, memungkinkan kita untuk menunggu
+pada beberapa operasi / eksekusi kode dengan channel.
+Kombinasi dari goroutine, channel, dan select
+merupakan fitur yang hebat.</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/FzONhs4-tae"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/jhmCxkZn69v"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -79,7 +70,8 @@ select is a powerful feature of Go.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll select across two channels.</p>
+            <p>Dalam contoh ini, kita akan melakukan _select
+pada dua channel.</p>
 
           </td>
           <td class="code leading">
@@ -93,9 +85,9 @@ select is a powerful feature of Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Each channel will receive a value after some amount
-of time, to simulate e.g. blocking RPC operations
-executing in concurrent goroutines.</p>
+            <p>Setiap channel akan menerima value setelah sejumlah
+waktu sebagai simulasi, misalnya  dari eksekusi dari goroutine
+yang <em>concurrent</em> dari operasi blocking RPC.</p>
 
           </td>
           <td class="code leading">
@@ -115,8 +107,9 @@ executing in concurrent goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use <code>select</code> to await both of these values
-simultaneously, printing each one as it arrives.</p>
+            <p>Kita akan menggunakan <code>select</code> untuk menunggu
+kedua value tersebut secara bersamaan, dan
+menampilkannya ketika diterima.</p>
 
           </td>
           <td class="code">
@@ -141,8 +134,8 @@ simultaneously, printing each one as it arrives.</p>
         
         <tr>
           <td class="docs">
-            <p>We receive the values <code>&quot;one&quot;</code> and then <code>&quot;two&quot;</code> as
-expected.</p>
+            <p>Kita menerima value <code>&quot;one&quot;</code> dan kemudian <code>&quot;two&quot;</code>
+seperti yang kita harapkan.</p>
 
           </td>
           <td class="code leading">
@@ -157,9 +150,9 @@ expected.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the total execution time is only ~2 seconds
-since both the 1 and 2 second <code>Sleeps</code> execute
-concurrently.</p>
+            <p>Perhatikan bahwa total waktu eksekusi hanya sekitar
+~2 detik karena kedua perintah <code>Sleep</code> dieksekusi
+secara concurrent.</p>
 
           </td>
           <td class="code">
@@ -183,7 +176,7 @@ concurrently.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    c1 :\x3D make(chan string)\u000A    c2 :\x3D make(chan string)\u000A');codeLines.push('    go func() {\u000A        time.Sleep(1 * time.Second)\u000A        c1 \x3C- \"one\"\u000A    }()\u000A    go func() {\u000A        time.Sleep(2 * time.Second)\u000A        c2 \x3C- \"two\"\u000A    }()\u000A');codeLines.push('    for i :\x3D 0; i \x3C 2; i++ {\u000A        select {\u000A        case msg1 :\x3D \x3C-c1:\u000A            fmt.Println(\"received\", msg1)\u000A        case msg2 :\x3D \x3C-c2:\u000A            fmt.Println(\"received\", msg2)\u000A        }\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    c1 :\x3D make(chan string)\u000A    c2 :\x3D make(chan string)\u000A');codeLines.push('    go func() {\u000A        time.Sleep(1 * time.Second)\u000A        c1 \x3C- \"one\"\u000A    }()\u000A    go func() {\u000A        time.Sleep(2 * time.Second)\u000A        c2 \x3C- \"two\"\u000A    }()\u000A');codeLines.push('    for i :\x3D 0; i \x3C 2; i++ {\u000A        select {\u000A        case msg1 :\x3D \x3C-c1:\u000A            fmt.Println(\"received\", msg1)\u000A        case msg2 :\x3D \x3C-c2:\u000A            fmt.Println(\"received\", msg2)\u000A        }\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

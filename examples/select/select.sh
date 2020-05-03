@@ -1,10 +1,10 @@
-# We receive the values `"one"` and then `"two"` as
-# expected.
+# Kita menerima value `"one"` dan kemudian `"two"`
+# seperti yang kita harapkan.
 $ time go run select.go 
 received one
 received two
 
-# Note that the total execution time is only ~2 seconds
-# since both the 1 and 2 second `Sleeps` execute
-# concurrently.
+# Perhatikan bahwa total waktu eksekusi hanya sekitar
+# ~2 detik karena kedua perintah `Sleep` dieksekusi
+# secara concurrent.
 real	0m2.245s
