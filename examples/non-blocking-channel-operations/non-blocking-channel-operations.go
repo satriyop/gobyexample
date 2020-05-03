@@ -1,8 +1,8 @@
-// Basic sends and receives on channels are blocking.
-// However, we can use `select` with a `default` clause to
-// implement _non-blocking_ sends, receives, and even
-// non-blocking multi-way `select`s.
-
+// Proses mengirim dan menerima pada channel pada dasarnya
+// bersifat blocking, tapi kita bisa menggunakan `select`
+// dengan klausa `default` untuk mengimplementasikan
+// pengiriman dan penerimaan yang _non-blocking_  bahkan
+// beberapa klausa `select` yang non-blocking.
 package main
 
 import "fmt"
@@ -11,10 +11,10 @@ func main() {
 	messages := make(chan string)
 	signals := make(chan bool)
 
-	// Here's a non-blocking receive. If a value is
-	// available on `messages` then `select` will take
-	// the `<-messages` `case` with that value. If not
-	// it will immediately take the `default` case.
+	// Di contoh ini adalah penerimaan non-blocking.
+	// Bila value tersedia pada `messages` maka `select`
+	// akan memilih klausa `<-messages`. Jika tidak maka
+	// akan segera memilih klausa `default`.
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
@@ -22,10 +22,10 @@ func main() {
 		fmt.Println("no message received")
 	}
 
-	// A non-blocking send works similarly. Here `msg`
-	// cannot be sent to the `messages` channel, because
-	// the channel has no buffer and there is no receiver.
-	// Therefore the `default` case is selected.
+	// Pengiriman non-blocking juga hampir sama. Di sini
+	// `msg` tidak bisa dikirimkan ke channel `messages`
+	// karena channel tidak punya _buffer_ dan tidak mempunyai
+	// penerima, sehingga klausa `default` yang akan dipilih.
 	msg := "hi"
 	select {
 	case messages <- msg:
@@ -34,10 +34,11 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
-	// We can use multiple `case`s above the `default`
-	// clause to implement a multi-way non-blocking
-	// select. Here we attempt non-blocking receives
-	// on both `messages` and `signals`.
+	// Kita bisa menggunakan beberapa klausa sebelum
+	// klausa `default` untuk mengimplementasikan
+	// beberapa select non-blocking. Di contoh ini
+	// kita berusaha menerima secara non-blocking pada
+	// kedua channel `messages` dan `signals`.
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
