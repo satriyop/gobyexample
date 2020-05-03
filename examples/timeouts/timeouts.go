@@ -1,8 +1,8 @@
-// _Timeouts_ are important for programs that connect to
-// external resources or that otherwise need to bound
-// execution time. Implementing timeouts in Go is easy and
-// elegant thanks to channels and `select`.
-
+// _Timeout_ adalah hal penting bagi program yang
+// menghubungkan _resource_ eksternal atau hal lain yang
+// membutuhkan waktu lama pada eksekusi. Mengimplementasikan
+// timeout pada Go menjadi mudah dan elegan dengan menggunakan
+// channel dan `select`.
 package main
 
 import (
@@ -12,24 +12,27 @@ import (
 
 func main() {
 
-	// For our example, suppose we're executing an external
-	// call that returns its result on a channel `c1`
-	// after 2s. Note that the channel is buffered, so the
-	// send in the goroutine is nonblocking. This is a
-	// common pattern to prevent goroutine leaks in case the
-	// channel is never read.
+	// Misalnya kita akan mengeksekusi sebuah _external call_
+	// yang akan mengembalikan hasilnya pada channel `c1`
+	// setelah 2 detik. Perhatikan ahwa channel ini di-_buffer_,
+	// sehingga pengiriman pada goroutine ini sifatnya non-blocking.
+	// hal ini adalah pola yang umum dipakai untuk menghindari
+	// gorouting _leaks_ pada kasus dimana channel tidak pernah dibaca.
 	c1 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)
 		c1 <- "result 1"
 	}()
 
-	// Here's the `select` implementing a timeout.
-	// `res := <-c1` awaits the result and `<-Time.After`
-	// awaits a value to be sent after the timeout of
-	// 1s. Since `select` proceeds with the first
-	// receive that's ready, we'll take the timeout case
-	// if the operation takes more than the allowed 1s.
+	// Di contoh ini, kita menggunakan `select` yang
+	// mengimplementasikan timeout.
+	// Sintask `res := <-c1` akan menunggu dari hasil
+	// dan sintaks `<-Time.After` akan menunggu value
+	// yang akan dikirimkan setelah waktu timeout 1 detik.
+	// Karena `select` akan memilih yang terlebih dahulu
+	// menerima value, maka kita akan mengeksekusi
+	// case timeout, hanya bila operasi ini berjalan lebih
+	// dari 1 detik seperti yang kita atur di kode.
 	select {
 	case res := <-c1:
 		fmt.Println(res)
@@ -37,8 +40,8 @@ func main() {
 		fmt.Println("timeout 1")
 	}
 
-	// If we allow a longer timeout of 3s, then the receive
-	// from `c2` will succeed and we'll print the result.
+	// Jika kita mengijinkan waktu timeout lebih lama dari 3 detik,
+	// maka penerima dari `c2` akan sukses dan menampilkan hasilnya.
 	c2 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)
