@@ -1,6 +1,6 @@
-// The first timer will fire ~2s after we start the
-// program, but the second should be stopped before it has
-// a chance to fire.
+// Timer pertama akan mulai ~2 detik setelah kita
+// memulai program, tapi timer kedua seharusnya berhenti
+// sebelum bahkan timer tersebut mulai.
 $ go run timers.go
 Timer 1 fired
 Timer 2 stopped
