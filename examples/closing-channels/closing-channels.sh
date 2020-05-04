@@ -8,5 +8,6 @@ received job 3
 sent all jobs
 received all jobs
 
-# The idea of closed channels leads naturally to our next
-# example: `range` over channels.
+# Ide tentang menutup channel akan membawa kita pada
+# pembahasan selanjutnya: 
+# `range` terhadap channel-channel.

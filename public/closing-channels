@@ -27,23 +27,14 @@
         
         <tr>
           <td class="docs">
-            <p><em>Closing</em> a channel indicates that no more values
-will be sent on it. This can be useful to communicate
-completion to the channel&rsquo;s receivers.</p>
+            <p>Menutup sebuah channel mengindikasikan bahwa tidak ada
+lagi value yang akan dikirimkan pada channel tersebut.
+Hal ini berguna untuk mengkomunikasikan bahwa proses
+telah selesai di sisi penerima channel.</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/vCvRjcMq7p3"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/XBvAogv3rwQ"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,10 +55,11 @@ completion to the channel&rsquo;s receivers.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll use a <code>jobs</code> channel to
-communicate work to be done from the <code>main()</code> goroutine
-to a worker goroutine. When we have no more jobs for
-the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
+            <p>Dalam contoh ini, kita menggunakan sebuah channel
+<code>jobs</code> yang akan mengkomunikasikan pekerjaan yang harus
+diselesaikan dari gorouting <code>main()</code>.
+Ketika tidak ada lagi jobs untuk <em>worker</em> kita akan menutup
+channel <code>jobs</code>.</p>
 
           </td>
           <td class="code leading">
@@ -82,13 +74,15 @@ the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker goroutine. It repeatedly receives
-from <code>jobs</code> with <code>j, more := &lt;-jobs</code>. In this
-special 2-value form of receive, the <code>more</code> value
-will be <code>false</code> if <code>jobs</code> has been <code>close</code>d and all
-values in the channel have already been received.
-We use this to notify on <code>done</code> when we&rsquo;ve worked
-all our jobs.</p>
+            <p>Ini adalah goroutine dari <em>worker</em>. goroutine ini akan
+secara berulang menerima dari value dari channel <code>jobs</code>
+dalam sintaks <code>j, more := &lt;- jobs</code>.
+Dalam bentuk penerima 2-value  yang khusus ini,
+value dari <code>more</code> akan <code>false</code> ketika
+<code>jobs</code> telah ditutup dan semua value dalam channel tersebut
+sudah diterima.
+Kita menggunakan ini untuk memberitahu pada channel <code>done</code>
+ketika kita sudah melakukan semua proses(jobs).</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +106,8 @@ all our jobs.</p>
         
         <tr>
           <td class="docs">
-            <p>This sends 3 jobs to the worker over the <code>jobs</code>
-channel, then closes it.</p>
+            <p>Kode ini akan mengirimkan 3 value ke channel jobs
+kepada worker, dan menutup channel tersebut.</p>
 
           </td>
           <td class="code leading">
@@ -131,9 +125,9 @@ channel, then closes it.</p>
         
         <tr>
           <td class="docs">
-            <p>We await the worker using the
-<a href="channel-synchronization">synchronization</a> approach
-we saw earlier.</p>
+            <p>Kita menunggu worker menggunakan
+pendekatan <a href="channel-synchronization">synchronization</a>
+seperti yang sudah kita lakukan sebelumnya.</p>
 
           </td>
           <td class="code">
@@ -171,8 +165,9 @@ we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>The idea of closed channels leads naturally to our next
-example: <code>range</code> over channels.</p>
+            <p>Ide tentang menutup channel akan membawa kita pada
+pembahasan selanjutnya:
+<code>range</code> terhadap channel-channel.</p>
 
           </td>
           <td class="code empty">
@@ -194,7 +189,7 @@ example: <code>range</code> over channels.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func main() {\u000A    jobs :\x3D make(chan int, 5)\u000A    done :\x3D make(chan bool)\u000A');codeLines.push('    go func() {\u000A        for {\u000A            j, more :\x3D \x3C-jobs\u000A            if more {\u000A                fmt.Println(\"received job\", j)\u000A            } else {\u000A                fmt.Println(\"received all jobs\")\u000A                done \x3C- true\u000A                return\u000A            }\u000A        }\u000A    }()\u000A');codeLines.push('    for j :\x3D 1; j \x3C\x3D 3; j++ {\u000A        jobs \x3C- j\u000A        fmt.Println(\"sent job\", j)\u000A    }\u000A    close(jobs)\u000A    fmt.Println(\"sent all jobs\")\u000A');codeLines.push('    \x3C-done\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func main() {\u000A    jobs :\x3D make(chan int, 5)\u000A    done :\x3D make(chan bool)\u000A');codeLines.push('    go func() {\u000A        for {\u000A            j, more :\x3D \x3C-jobs\u000A            if more {\u000A                fmt.Println(\"received job\", j)\u000A            } else {\u000A                fmt.Println(\"received all jobs\")\u000A                done \x3C- true\u000A                return\u000A            }\u000A        }\u000A    }()\u000A');codeLines.push('    for j :\x3D 1; j \x3C\x3D 3; j++ {\u000A        jobs \x3C- j\u000A        fmt.Println(\"sent job\", j)\u000A    }\u000A    close(jobs)\u000A    fmt.Println(\"sent all jobs\")\u000A');codeLines.push('    \x3C-done\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

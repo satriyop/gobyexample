@@ -1,26 +1,29 @@
-// _Closing_ a channel indicates that no more values
-// will be sent on it. This can be useful to communicate
-// completion to the channel's receivers.
-
+// Menutup sebuah channel mengindikasikan bahwa tidak ada
+// lagi value yang akan dikirimkan pada channel tersebut.
+// Hal ini berguna untuk mengkomunikasikan bahwa proses
+// telah selesai di sisi penerima channel.
 package main
 
 import "fmt"
 
-// In this example we'll use a `jobs` channel to
-// communicate work to be done from the `main()` goroutine
-// to a worker goroutine. When we have no more jobs for
-// the worker we'll `close` the `jobs` channel.
+// Dalam contoh ini, kita menggunakan sebuah channel
+// `jobs` yang akan mengkomunikasikan pekerjaan yang harus
+// diselesaikan dari gorouting `main()`.
+// Ketika tidak ada lagi jobs untuk _worker_ kita akan menutup
+// channel `jobs`.
 func main() {
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
-	// Here's the worker goroutine. It repeatedly receives
-	// from `jobs` with `j, more := <-jobs`. In this
-	// special 2-value form of receive, the `more` value
-	// will be `false` if `jobs` has been `close`d and all
-	// values in the channel have already been received.
-	// We use this to notify on `done` when we've worked
-	// all our jobs.
+	// Ini adalah goroutine dari _worker_. goroutine ini akan
+	// secara berulang menerima dari value dari channel `jobs`
+	// dalam sintaks `j, more := <- jobs`.
+	// Dalam bentuk penerima 2-value  yang khusus ini,
+	// value dari `more` akan `false` ketika
+	// `jobs` telah ditutup dan semua value dalam channel tersebut
+	// sudah diterima.
+	// Kita menggunakan ini untuk memberitahu pada channel `done`
+	// ketika kita sudah melakukan semua proses(jobs).
 	go func() {
 		for {
 			j, more := <-jobs
@@ -34,8 +37,8 @@ func main() {
 		}
 	}()
 
-	// This sends 3 jobs to the worker over the `jobs`
-	// channel, then closes it.
+	// Kode ini akan mengirimkan 3 value ke channel jobs
+	// kepada worker, dan menutup channel tersebut.
 	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
@@ -43,8 +46,8 @@ func main() {
 	close(jobs)
 	fmt.Println("sent all jobs")
 
-	// We await the worker using the
-	// [synchronization](channel-synchronization) approach
-	// we saw earlier.
+	// Kita menunggu worker menggunakan
+	// pendekatan [synchronization](channel-synchronization)
+	// seperti yang sudah kita lakukan sebelumnya.
 	<-done
 }
