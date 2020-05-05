@@ -1,9 +1,8 @@
-// [Timers](timers) are for when you want to do
-// something once in the future - _tickers_ are for when
-// you want to do something repeatedly at regular
-// intervals. Here's an example of a ticker that ticks
-// periodically until we stop it.
-
+//[Timers](timers)  dipakai untuk sesuatu yang ingin kita
+// lakukan saat nanti, sedangkan _ticker_ digunakan ketika
+// kita ingin melakukan sesuatu secara berulang pada sebuah
+// interval. Di contoh ini adalah ticker yang berjalan
+// secara periodis sampai kita menghentikannya.
 package main
 
 import (
@@ -13,10 +12,10 @@ import (
 
 func main() {
 
-	// Tickers use a similar mechanism to timers: a
-	// channel that is sent values. Here we'll use the
-	// `select` builtin on the channel to await the
-	// values as they arrive every 500ms.
+	// Ticker menggunakan mekanisme serupa dengan timer:
+	// sebuah channel yang mengirimkan value. Di sini kita
+	// menggunakan `select` pada channel untuk menunggu
+	// value diterima setiap 500 mili detik.
 	ticker := time.NewTicker(500 * time.Millisecond)
 	done := make(chan bool)
 
@@ -31,9 +30,10 @@ func main() {
 		}
 	}()
 
-	// Tickers can be stopped like timers. Once a ticker
-	// is stopped it won't receive any more values on its
-	// channel. We'll stop ours after 1600ms.
+	// Ticker bisa dihentikan seperti timer. Ketika ticker
+	// berhenti maka tidak akan menerima lagi value pada
+	// channel. Kita akan menghentikan ticker kita setelah
+	// 1600 mili detik.
 	time.Sleep(1600 * time.Millisecond)
 	ticker.Stop()
 	done <- true
