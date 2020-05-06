@@ -1,6 +1,5 @@
-// To wait for multiple goroutines to finish, we can
-// use a *wait group*.
-
+// Untuk menunggu beberapa goroutine selesai,
+// kita bisa menggunakan _wait group_
 package main
 
 import (
@@ -9,34 +8,39 @@ import (
 	"time"
 )
 
-// This is the function we'll run in every goroutine.
-// Note that a WaitGroup must be passed to functions by
-// pointer.
+// Ini adalah fungsi yang akan berjalan pada setiap
+// goroutine. Perhatikan bahwa sebuah WaitGroup harus
+// diberikan sebagai pointer pada parameter fungsi.
 func worker(id int, wg *sync.WaitGroup) {
-	// On return, notify the WaitGroup that we're done.
+	// Akan men-decrement counter WaitGroup,
+	// sehingga saat return, akan memberitahu WaitGroup bahwa
+	// goroutine telah selesai.
 	defer wg.Done()
 
 	fmt.Printf("Worker %d starting\n", id)
 
-	// Sleep to simulate an expensive task.
+	// Menggunakan _sleep_ untuk simulasi pekerjaan
+	// yang membutuhkan waktu untuk selesai.
 	time.Sleep(time.Second)
 	fmt.Printf("Worker %d done\n", id)
 }
 
 func main() {
 
-	// This WaitGroup is used to wait for all the
-	// goroutines launched here to finish.
+	// WaitGroup ini digunakan untuk menunggu
+	// semua goroutine yang sudah berjalan untuk
+	// selesai.
 	var wg sync.WaitGroup
 
-	// Launch several goroutines and increment the WaitGroup
-	// counter for each.
+	// Menjalankan beberapa goroutine dan menambahkan counter
+	// dari WaitGroup untuk setiap goroutinenya.
 	for i := 1; i <= 5; i++ {
 		wg.Add(1)
 		go worker(i, &wg)
 	}
 
-	// Block until the WaitGroup counter goes back to 0;
-	// all the workers notified they're done.
+	// Melakukan block sampai counter dari WaitGroup
+	// kembali ke 0; Semua worker akan tahu kalau mereka
+	// telah selesai.
 	wg.Wait()
 }

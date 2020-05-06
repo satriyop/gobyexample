@@ -27,22 +27,12 @@
         
         <tr>
           <td class="docs">
-            <p>To wait for multiple goroutines to finish, we can
-use a <em>wait group</em>.</p>
+            <p>Untuk menunggu beberapa goroutine selesai,
+kita bisa menggunakan <em>wait group</em></p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/7mWXl0yVe6I"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/KKgmZ7aaZs_g"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -67,9 +57,9 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in every goroutine.
-Note that a WaitGroup must be passed to functions by
-pointer.</p>
+            <p>Ini adalah fungsi yang akan berjalan pada setiap
+goroutine. Perhatikan bahwa sebuah WaitGroup harus
+diberikan sebagai pointer pada parameter fungsi.</p>
 
           </td>
           <td class="code leading">
@@ -82,7 +72,9 @@ pointer.</p>
         
         <tr>
           <td class="docs">
-            <p>On return, notify the WaitGroup that we&rsquo;re done.</p>
+            <p>Akan men-decrement counter WaitGroup,
+sehingga saat return, akan memberitahu WaitGroup bahwa
+goroutine telah selesai.</p>
 
           </td>
           <td class="code leading">
@@ -107,7 +99,8 @@ pointer.</p>
         
         <tr>
           <td class="docs">
-            <p>Sleep to simulate an expensive task.</p>
+            <p>Menggunakan <em>sleep</em> untuk simulasi pekerjaan
+yang membutuhkan waktu untuk selesai.</p>
 
           </td>
           <td class="code leading">
@@ -134,8 +127,9 @@ pointer.</p>
         
         <tr>
           <td class="docs">
-            <p>This WaitGroup is used to wait for all the
-goroutines launched here to finish.</p>
+            <p>WaitGroup ini digunakan untuk menunggu
+semua goroutine yang sudah berjalan untuk
+selesai.</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +142,8 @@ goroutines launched here to finish.</p>
         
         <tr>
           <td class="docs">
-            <p>Launch several goroutines and increment the WaitGroup
-counter for each.</p>
+            <p>Menjalankan beberapa goroutine dan menambahkan counter
+dari WaitGroup untuk setiap goroutinenya.</p>
 
           </td>
           <td class="code leading">
@@ -165,8 +159,9 @@ counter for each.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until the WaitGroup counter goes back to 0;
-all the workers notified they&rsquo;re done.</p>
+            <p>Melakukan block sampai counter dari WaitGroup
+kembali ke 0; Semua worker akan tahu kalau mereka
+telah selesai.</p>
 
           </td>
           <td class="code">
@@ -206,8 +201,9 @@ all the workers notified they&rsquo;re done.</p>
         
         <tr>
           <td class="docs">
-            <p>The order of workers starting up and finishing
-is likely to be different for each invocation.</p>
+            <p>Urutan dari worker yang mulai dan selesai
+kemungkinan besar akan berbeda untuk setiap
+eksekusi.</p>
 
           </td>
           <td class="code empty">
@@ -229,7 +225,7 @@ is likely to be different for each invocation.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"sync\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func worker(id int, wg *sync.WaitGroup) {\u000A');codeLines.push('    defer wg.Done()\u000A');codeLines.push('    fmt.Printf(\"Worker %d starting\\n\", id)\u000A');codeLines.push('    time.Sleep(time.Second)\u000A    fmt.Printf(\"Worker %d done\\n\", id)\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var wg sync.WaitGroup\u000A');codeLines.push('    for i :\x3D 1; i \x3C\x3D 5; i++ {\u000A        wg.Add(1)\u000A        go worker(i, \x26wg)\u000A    }\u000A');codeLines.push('    wg.Wait()\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"sync\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func worker(id int, wg *sync.WaitGroup) {\u000A');codeLines.push('    defer wg.Done()\u000A');codeLines.push('    fmt.Printf(\"Worker %d starting\\n\", id)\u000A');codeLines.push('    time.Sleep(time.Second)\u000A    fmt.Printf(\"Worker %d done\\n\", id)\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var wg sync.WaitGroup\u000A');codeLines.push('    for i :\x3D 1; i \x3C\x3D 5; i++ {\u000A        wg.Add(1)\u000A        go worker(i, \x26wg)\u000A    }\u000A');codeLines.push('    wg.Wait()\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
