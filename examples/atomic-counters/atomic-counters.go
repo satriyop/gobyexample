@@ -1,10 +1,9 @@
-// The primary mechanism for managing state in Go is
-// communication over channels. We saw this for example
-// with [worker pools](worker-pools). There are a few other
-// options for managing state though. Here we'll
-// look at using the `sync/atomic` package for _atomic
-// counters_ accessed by multiple goroutines.
-
+// Mekanisme utama untuk mengatur _state_ di Go adalah
+// komunikasi melalui channel. Kita telah melihatnya di contoh
+// [worker pools](worker-pools). Namun ada beberapa pilihan
+// lain untuk mengatur state. Di contoh ini kita akan melihat
+// penggunaan package `sync/atomic` untuk _atomic counters_
+// yang diakses oleh beberapa goroutine.
 package main
 
 import (
@@ -15,38 +14,37 @@ import (
 
 func main() {
 
-	// We'll use an unsigned integer to represent our
-	// (always-positive) counter.
+	// Kita akan menggunakan sebuah unsigned integer
+	// sebagai representasi counter (nilainya selalu positif).
 	var ops uint64
 
-	// A WaitGroup will help us wait for all goroutines
-	// to finish their work.
+	// Sebuah _WaitGroup_ akan digunakan untuk menunggu
+	// semua goroutine selesai.
 	var wg sync.WaitGroup
 
-	// We'll start 50 goroutines that each increment the
-	// counter exactly 1000 times.
+	// Kita akan menjalankan 50 goroutine yang akan
+	// menaikkan counter sampai 1000 kali.
 	for i := 0; i < 50; i++ {
 		wg.Add(1)
 
 		go func() {
 			for c := 0; c < 1000; c++ {
-				// To atomically increment the counter we
-				// use `AddUint64`, giving it the memory
-				// address of our `ops` counter with the
-				// `&` syntax.
+				// Untuk menaikkan nilai cuonter secara
+				// _atomic_ kita menggunakan `AddUint64`
+				// dan memberikan alamat memory counter
+				// `ops` dengan sintaks `&`.
 				atomic.AddUint64(&ops, 1)
 			}
 			wg.Done()
 		}()
 	}
 
-	// Wait until all the goroutines are done.
+	// Menunggu sampai semua gorouting selesai.
 	wg.Wait()
 
-	// It's safe to access `ops` now because we know
-	// no other goroutine is writing to it. Reading
-	// atomics safely while they are being updated is
-	// also possible, using functions like
-	// `atomic.LoadUint64`.
+	// Sekarang sudah aman untuk mengakses `ops` karena
+	// kita tahu tidak ada lagi goroutine yang menulisnya.
+	// Membaca atomic secara aman sewaktu atomic diupdate juga
+	// dimungkinkan menggunakan fungsi seperti `atomic.LoadUint64`.
 	fmt.Println("ops:", ops)
 }

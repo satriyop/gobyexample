@@ -1,11 +1,12 @@
-# We expect to get exactly 50,000 operations. Had we
-# used the non-atomic `ops++` to increment the counter,
-# we'd likely get a different number, changing between
-# runs, because the goroutines would interfere with
-# each other. Moreover, we'd get data race failures
-# when running with the `-race` flag.
+# Kita mengharapkan mendapatkan persis 50.000 operasi.
+# Jika kita menggunakan non-atomic `ops++` untuk 
+# menaikkan counter kemungkinan besar kita akan 
+# mendapatkan jumlah lain yang berbeda setiap kali
+# menjalankan program karena goroutine akan mempengaruhi
+# satu sama lain. Kita akan mendapatkan data race failure
+# bila kita menjalankan program dengan flag `-race`.
 $ go run atomic-counters.go
 ops: 50000
 
-# Next we'll look at mutexes, another tool for managing
-# state.
+# Selanjutnya kita akan melihat mutex, 
+# tool lainnya yang untuk mengatur state.
