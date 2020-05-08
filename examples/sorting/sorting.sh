@@ -1,5 +1,6 @@
-# Running our program prints the sorted string and int
-# slices and `true` as the result of our `AreSorted` test.
+# Dengan manjalankan program kita melihat bahwa slice
+# dari string dan int yang telah urut dan hasil dari 
+# `AreSorted` adalah `true`.
 $ go run sorting.go
 Strings: [a b c]
 Ints:    [2 4 7]
