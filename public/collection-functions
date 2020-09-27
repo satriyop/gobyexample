@@ -27,40 +27,11 @@
         
         <tr>
           <td class="docs">
-            <p>We often need our programs to perform operations on
-collections of data, like selecting all items that
-satisfy a given predicate or mapping all items to a new
-collection with a custom function.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
             <p>Sering, dalam program kita dimana kita ingin
 melakukan sebuah operasi pada koleksi data, seperti
 memilih semua item yang sesuai dengan predikat atau
 memetakan semua item pada sebuah koleksi data baru
 dengan sebuah fungsi custom.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>In some languages it&rsquo;s idiomatic to use <a href="http://en.wikipedia.org/wiki/Generic_programming">generic</a>
-data structures and algorithms. Go does not support
-generics; in Go it&rsquo;s common to provide collection
-functions if and when they are specifically needed for
-your program and data types.</p>
 
           </td>
           <td class="code empty leading">
@@ -77,22 +48,6 @@ bisa dilakukan dengan menggunakan struktur data
 Go tidak mempunyai generics; adalah hal umum di Go
 untuk menyediakan collection function jika dan hanya
 jika dibutuhkan oleh program dan tipe data.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Here are some example collection functions for slices
-of <code>strings</code>. You can use these examples to build your
-own functions. Note that in some cases it may be
-clearest to just inline the collection-manipulating
-code directly, instead of creating and calling a
-helper function.</p>
 
           </td>
           <td class="code empty leading">
@@ -122,7 +77,7 @@ inline daripada membuat dan memanggil fungsi helper.</p>
             
           </td>
           <td class="code leading">
-            <a href="http://play.golang.org/p/V3Uel0JmlBB"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="http://play.golang.org/p/sLacikYRjOW"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -141,18 +96,6 @@ inline daripada membuat dan memanggil fungsi helper.</p>
 <span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Index returns the first index of the target string <code>t</code>, or
--1 if no match is found.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
           </td>
         </tr>
         
@@ -179,18 +122,6 @@ target string <code>t</code> , atau -1 bila tidak ada yang cocok.</p>
         
         <tr>
           <td class="docs">
-            <p>Include returns <code>true</code> if the target string t is in the
-slice.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
             <p>Include akan mengembalikan nilai <code>true</code> bila target string t
 ada dalam slice.</p>
 
@@ -202,18 +133,6 @@ ada dalam slice.</p>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Any returns <code>true</code> if one of the strings in the slice
-satisfies the predicate <code>f</code>.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
           </td>
         </tr>
         
@@ -240,18 +159,6 @@ dalam slice cocok dengan predikat <code>f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>All returns <code>true</code> if all of the strings in the slice
-satisfy the predicate <code>f</code>.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
             <p>All akan mengembalikan nilai <code>true</code> bila semua string
 dalam slice cocok dengan predicate <code>f</code>.</p>
 
@@ -268,18 +175,6 @@ dalam slice cocok dengan predicate <code>f</code>.</p>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Filter returns a new slice containing all strings in the
-slice that satisfy the predicate <code>f</code>.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
           </td>
         </tr>
         
@@ -302,18 +197,6 @@ semua nilai string dalam slie yang cocok dengan predikat <code>f</code>.</p>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Map returns a new slice containing the results of applying
-the function <code>f</code> to each string in the original slice.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
           </td>
         </tr>
         
@@ -347,17 +230,6 @@ dalam slice awal.</p>
           <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Here we try out our various collection functions.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
           </td>
         </tr>
         
@@ -442,19 +314,6 @@ dalam slice awal.</p>
         
         <tr>
           <td class="docs">
-            <p>The above examples all used anonymous functions,
-but you can also use named functions of the correct
-type.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
             <p>Contoh-contoh di atas semuanya menggunakan fungsi
 anonim, tapi kita juga bisa menggunakan fungsi bernama
 dari tipe yang tepat.</p>
@@ -515,7 +374,7 @@ dari tipe yang tepat.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"strings\"\u000A)\u000A');codeLines.push('');codeLines.push('func Index(vs []string, t string) int {\u000A    for i, v :\x3D range vs {\u000A        if v \x3D\x3D t {\u000A            return i\u000A        }\u000A    }\u000A    return -1\u000A}\u000A');codeLines.push('');codeLines.push('func Include(vs []string, t string) bool {\u000A    return Index(vs, t) \x3E\x3D 0\u000A}\u000A');codeLines.push('');codeLines.push('func Any(vs []string, f func(string) bool) bool {\u000A    for _, v :\x3D range vs {\u000A        if f(v) {\u000A            return true\u000A        }\u000A    }\u000A    return false\u000A}\u000A');codeLines.push('');codeLines.push('func All(vs []string, f func(string) bool) bool {\u000A    for _, v :\x3D range vs {\u000A        if !f(v) {\u000A            return false\u000A        }\u000A    }\u000A    return true\u000A}\u000A');codeLines.push('');codeLines.push('func Filter(vs []string, f func(string) bool) []string {\u000A    vsf :\x3D make([]string, 0)\u000A    for _, v :\x3D range vs {\u000A        if f(v) {\u000A            vsf \x3D append(vsf, v)\u000A        }\u000A    }\u000A    return vsf\u000A}\u000A');codeLines.push('');codeLines.push('func Map(vs []string, f func(string) string) []string {\u000A    vsm :\x3D make([]string, len(vs))\u000A    for i, v :\x3D range vs {\u000A        vsm[i] \x3D f(v)\u000A    }\u000A    return vsm\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('');codeLines.push('    var strs \x3D []string{\"peach\", \"apple\", \"pear\", \"plum\"}\u000A');codeLines.push('    fmt.Println(Index(strs, \"pear\"))\u000A');codeLines.push('    fmt.Println(Include(strs, \"grape\"))\u000A');codeLines.push('    fmt.Println(Any(strs, func(v string) bool {\u000A        return strings.HasPrefix(v, \"p\")\u000A    }))\u000A');codeLines.push('    fmt.Println(All(strs, func(v string) bool {\u000A        return strings.HasPrefix(v, \"p\")\u000A    }))\u000A');codeLines.push('    fmt.Println(Filter(strs, func(v string) bool {\u000A        return strings.Contains(v, \"e\")\u000A    }))\u000A');codeLines.push('');codeLines.push('    fmt.Println(Map(strs, strings.ToUpper))\u000A');codeLines.push('}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('');codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"strings\"\u000A)\u000A');codeLines.push('func Index(vs []string, t string) int {\u000A    for i, v :\x3D range vs {\u000A        if v \x3D\x3D t {\u000A            return i\u000A        }\u000A    }\u000A    return -1\u000A}\u000A');codeLines.push('func Include(vs []string, t string) bool {\u000A    return Index(vs, t) \x3E\x3D 0\u000A}\u000A');codeLines.push('func Any(vs []string, f func(string) bool) bool {\u000A    for _, v :\x3D range vs {\u000A        if f(v) {\u000A            return true\u000A        }\u000A    }\u000A    return false\u000A}\u000A');codeLines.push('func All(vs []string, f func(string) bool) bool {\u000A    for _, v :\x3D range vs {\u000A        if !f(v) {\u000A            return false\u000A        }\u000A    }\u000A    return true\u000A}\u000A');codeLines.push('func Filter(vs []string, f func(string) bool) []string {\u000A    vsf :\x3D make([]string, 0)\u000A    for _, v :\x3D range vs {\u000A        if f(v) {\u000A            vsf \x3D append(vsf, v)\u000A        }\u000A    }\u000A    return vsf\u000A}\u000A');codeLines.push('func Map(vs []string, f func(string) string) []string {\u000A    vsm :\x3D make([]string, len(vs))\u000A    for i, v :\x3D range vs {\u000A        vsm[i] \x3D f(v)\u000A    }\u000A    return vsm\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var strs \x3D []string{\"peach\", \"apple\", \"pear\", \"plum\"}\u000A');codeLines.push('    fmt.Println(Index(strs, \"pear\"))\u000A');codeLines.push('    fmt.Println(Include(strs, \"grape\"))\u000A');codeLines.push('    fmt.Println(Any(strs, func(v string) bool {\u000A        return strings.HasPrefix(v, \"p\")\u000A    }))\u000A');codeLines.push('    fmt.Println(All(strs, func(v string) bool {\u000A        return strings.HasPrefix(v, \"p\")\u000A    }))\u000A');codeLines.push('    fmt.Println(Filter(strs, func(v string) bool {\u000A        return strings.Contains(v, \"e\")\u000A    }))\u000A');codeLines.push('    fmt.Println(Map(strs, strings.ToUpper))\u000A');codeLines.push('}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
