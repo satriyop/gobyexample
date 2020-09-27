@@ -1,8 +1,9 @@
-// _Defer_ is used to ensure that a function call is
-// performed later in a program's execution, usually for
-// purposes of cleanup. `defer` is often used where e.g.
-// `ensure` and `finally` would be used in other languages.
-
+// _Defer_ digunakan untuk memastikan bahwa sebuah
+// pemanggilan sebuah fungsi akan dilakukan dikemudian
+// dalam sebuah eksekusi program, biasanya digunakan
+// dalam rangka bersih-bersih. `defer` sering digunakan
+// dimana kata kunci `ensure` dan `finally` digunakan
+// dalam bahasa pemrograman lain.
 package main
 
 import (
@@ -10,16 +11,15 @@ import (
 	"os"
 )
 
-// Suppose we wanted to create a file, write to it,
-// and then close when we're done. Here's how we could
-// do that with `defer`.
+// Misalnya kita ingin membuat sebuah file, dan
+// menuliskan ke dalam file tersebut, dan kemudian
+// menutup file tersebut ketika sudah selesai.
+// Maka dengan `defer` kita bisa melakukannya seperti ini.
 func main() {
 
-	// Immediately after getting a file object with
-	// `createFile`, we defer the closing of that file
-	// with `closeFile`. This will be executed at the end
-	// of the enclosing function (`main`), after
-	// `writeFile` has finished.
+	// Segera setelah object file tercipta dengan
+	// `createFile`, kita men-`defer` penutupan file
+	// dengan memanggil `closeFile`
 	f := createFile("/tmp/defer.txt")
 	defer closeFile(f)
 	writeFile(f)
@@ -43,8 +43,9 @@ func writeFile(f *os.File) {
 func closeFile(f *os.File) {
 	fmt.Println("closing")
 	err := f.Close()
-	// It's important to check for errors when closing a
-	// file, even in a deferred function.
+	// Adalah penting untuk mengecek bila terjadi error
+	// ketika menutup file, meskipun dalam sebuah fungsi
+	// yang di-defer.
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)

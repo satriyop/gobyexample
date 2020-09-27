@@ -1,5 +1,5 @@
-# Running the program confirms that the file is closed
-# after being written.
+# Dengan menjalankan program terlihat bahwa file ditutup
+# setelah ditulisi.
 $ go run defer.go
 creating
 writing

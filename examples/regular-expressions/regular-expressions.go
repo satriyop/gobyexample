@@ -2,6 +2,8 @@
 // Here are some examples of  common regexp-related tasks
 // in Go.
 
+// Go mendukung fitur [regular expressions](http://en.wikipedia.org/wiki/Regular_expression) secara built-in.
+// Berikut adalah beberapa contoh penggunaan regexp di Go.
 package main
 
 import (
@@ -13,34 +15,58 @@ import (
 func main() {
 
 	// This tests whether a pattern matches a string.
+
+	// Untuk menguji bahwa sebuah pola cocok pada sebuah string.
 	match, _ := regexp.MatchString("p([a-z]+)ch", "peach")
 	fmt.Println(match)
 
 	// Above we used a string pattern directly, but for
 	// other regexp tasks you'll need to `Compile` an
 	// optimized `Regexp` struct.
+
+	// Pada contoh di atas kita menggunakan pola pada
+	// string secara langsung, tapi untuk penggunaan
+	// regexp yang lain kita perlu untuk melakukan `Compile`
+	// struct `Regexp` yang telah dioptimasi.
 	r, _ := regexp.Compile("p([a-z]+)ch")
 
 	// Many methods are available on these structs. Here's
 	// a match test like we saw earlier.
+
+	// Berbagai method tersedia pada struct ini.
+	// Di sini kita menguji pola seperti contoh di atas.
 	fmt.Println(r.MatchString("peach"))
 
 	// This finds the match for the regexp.
+
+	// Hal ini akan menemukan kecocokan pada regexp.
 	fmt.Println(r.FindString("peach punch"))
 
 	// This also finds the first match but returns the
 	// start and end indexes for the match instead of the
 	// matching text.
+
+	// Hal ini juga akan menemukan kecocokan pertama tapi
+	// mengembalikan index awal dan akhir untuk kecocokan
+	// bukan text yang cocok.
 	fmt.Println(r.FindStringIndex("peach punch"))
 
 	// The `Submatch` variants include information about
 	// both the whole-pattern matches and the submatches
 	// within those matches. For example this will return
 	// information for both `p([a-z]+)ch` and `([a-z]+)`.
+
+	// Variasi `Submatch` menyertakan informasi
+	// baik tentang kecocokan pola secara keseluruhan dan
+	// kecocokan sebagian (submatch). Contoh di bawah ini akan
+	// mengembalikan informasi baik `p([a-z]+)ch`
+	// maupun  `([a-z]+)`.
 	fmt.Println(r.FindStringSubmatch("peach punch"))
 
 	// Similarly this will return information about the
 	// indexes of matches and submatches.
+	// Hal yang sama, contoh di bawah ini akan mengembalikan
+	// informasi tentang kecocokan index dan submatch-nya.
 	fmt.Println(r.FindStringSubmatchIndex("peach punch"))
 
 	// The `All` variants of these functions apply to all
